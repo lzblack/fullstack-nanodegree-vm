@@ -43,7 +43,9 @@ def AddPost(content):
     # DB.append((t, content))
     DB = psycopg2.connect("dbname=forum")
     c = DB.cursor()
-    query = "insert into posts (content) values ('%s');"
-    c.execute(query % content)
+    query = "insert into posts (content) values (%s);"
+    c.execute(query, (content,))
+    DB.commit()
+    c.execute("delete from posts where content like '%spam%'")
     DB.commit()
     DB.close()
