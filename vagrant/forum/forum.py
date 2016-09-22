@@ -27,7 +27,7 @@ HTML_WRAP = '''\
     </style>
   </head>
   <body>
-    <h1>DB Forum</h1>
+    <h1>MIS 3545 DB Forum</h1>
     <form method=post action="/post">
       <div><textarea id="content" name="content"></textarea></div>
       <div><button id="go" type="submit">Post message</button></div>

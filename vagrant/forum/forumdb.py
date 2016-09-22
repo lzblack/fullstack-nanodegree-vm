@@ -23,7 +23,7 @@ def GetAllPosts():
     c = DB.cursor()
     #
     # posts.sort(key=lambda row: row['time'], reverse=True)
-    query = 'select time, content from posts order by time;'
+    query = 'SELECT time, content FROM posts ORDER BY time;'
     c.execute(query)
     posts = [{'content': str(row[1]), 'time': str(row[0])}
              for row in c.fetchall()]
@@ -43,7 +43,7 @@ def AddPost(content):
     # DB.append((t, content))
     DB = psycopg2.connect("dbname=forum")
     c = DB.cursor()
-    query = "insert into posts (content) values ('%s');"
+    query = "INSERT INTO posts (content) VALUES ('%s');"
     c.execute(query % content)
     DB.commit()
     DB.close()
